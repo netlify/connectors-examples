@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://sdk.netlify.com/config-schema.json
 config:
-  name: stories-connector
-  description: Demo vector search
-  slug: f9p163p2-jamhack-storis-connector
+  name: google-drive-csv-stories-connector
+  description: Sourcing a file from google drive
+  slug: bnqbmnsa-jamhack-storis-connector
   integrationLevel: team
