@@ -1,8 +1,0 @@
-input Config {
-  """ {"label":"Type prefix","helpText":"The prefix to use for types synced from this data source. It must start with an uppercase letter and can only consist of alphanumeric characters and underscores. For example, **Product** becomes **{Prefix}Product**."} """
-  typePrefix: String
-  """ {"label":"Google Drive API Key","helpText":"The API Key used for Google Drive","secret":true} """
-  apiKey: String!
-  """ {"label":"Google Drive File ID","helpText":"The File ID for Google Drive"} """
-  fileId: String!
-}

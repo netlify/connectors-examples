@@ -1,4 +1,7 @@
 .DS_Store
 node_modules
 .env
+.ntli
+.cache
+dev-model.gql
 /**/.env
