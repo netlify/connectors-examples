@@ -208,5 +208,16 @@ connector.proxySchema(async ({ typePrefix, state }) => {
   });
 });
 
+integration.onEnable(async (_, { teamId, client }) => {
+  // Connectors are disabled by default, so we need to
+  // enable them when the integration is enabled.
+
+  teamId && (await client.enableConnectors(teamId));
+
+  return {
+    statusCode: 200,
+  };
+});
+
 // the integration must be exported as a named export for the Netlify SDK to use it.
 export { integration };
