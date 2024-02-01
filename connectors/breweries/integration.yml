@@ -2,5 +2,5 @@
 config:
   name: breweries-api-connector
   description: Sourcing from Breweries REST API
-  slug: bnqbmnsa-jamhack-storis-connector
+  slug: fyrfkpyu-breweries-api-connector
   integrationLevel: team
