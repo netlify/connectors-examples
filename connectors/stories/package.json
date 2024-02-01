@@ -1,0 +1,22 @@
+{
+  "name": "stories-connector",
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "yarn build-connector && cp -r ./data .ntli/connector/data",
+    "build-connector": "ntli build -a",
+    "dev": "dotenv -e ./.env -- ntli dev -c",
+    "preview": "ntli preview"
+  },
+  "dependencies": {
+    "@netlify/sdk": "1.17.0",
+    "csvtojson": "^2.0.10",
+    "googleapis": "105",
+    "node-fetch": "^3.3.2",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^7.3.0"
+  }
+}

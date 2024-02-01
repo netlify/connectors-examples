@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=https://sdk.netlify.com/config-schema.json
+config:
+  name: stories-connector
+  description: Demo vector search
+  slug: f9p163p2-jamhack-storis-connector
+  integrationLevel: team
