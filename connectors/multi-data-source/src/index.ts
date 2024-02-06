@@ -7,12 +7,8 @@ const connector = integration.addConnector({
 });
 
 class SportsClient {
-  API: string;
-  constructor() {
-    this.API = `https://www.balldontlie.io/api/v1/`;
-  }
-  async getTeams() {
-    const api = `${this.API}/teams`;
+  async getNBA() {
+    const api = `https://www.balldontlie.io/api/v1/teams`;
     const res = await fetch(api);
     const data = await res.json();
     return data?.data;
@@ -23,6 +19,20 @@ class SportsClient {
     const res = await fetch(api);
     const data = await res.json();
     return data?.teams;
+  }
+
+  async getNHL() {
+    const api = `https://api.nhle.com/stats/rest/en/team`;
+    const res = await fetch(api);
+    const data = await res.json();
+    return data?.data;
+  }
+
+  async getNFL() {
+    const api = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams`;
+    const res = await fetch(api);
+    const data = await res.json();
+    return data?.sports?.[0]?.leagues?.[0]?.teams?.map(({ team }) => team);
   }
 }
 
@@ -50,8 +60,35 @@ connector.model(async ({ define }) => {
 });
 
 connector.sync(async ({ models, state }) => {
-  const data = await state.client.getTeams();
+  const nba = await state.client.getNBA();
   const mlb = await state.client.getMlb();
+  const nhl = await state.client.getNHL();
+  const nfl = await state.client.getNFL();
+
+  nfl.forEach((team) => {
+    models["Team"].create({
+      id: team.uid,
+      full_name: team?.displayName,
+      name: team?.name,
+      abbreviation: team.abbreviation,
+      contentId: team.id,
+      city: team?.location,
+      sport: `National Football League`,
+      sportType: `AMERICAN_FOOTBALL`,
+    });
+  });
+
+  nhl.forEach((team) => {
+    models["Team"].create({
+      id: team.id,
+      full_name: team?.fullName,
+      name: team?.fullName,
+      abbreviation: team.triCode,
+      contentId: team.id,
+      sport: `National Hockey League`,
+      sportType: `HOCKEY`,
+    });
+  });
 
   mlb.forEach((team) => {
     models["Team"].create({
@@ -67,7 +104,7 @@ connector.sync(async ({ models, state }) => {
     });
   });
 
-  data.forEach((team) => {
+  nba.forEach((team) => {
     models["Team"].create({
       ...team,
       sport: `National Basketball Association`,
