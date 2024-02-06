@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=https://sdk.netlify.com/config-schema.json
+config:
+  name: breweries-api-connector
+  description: Sourcing from Breweries REST API
+  slug: 5oj7aheb-breweries-api-connector
+  integrationLevel: team

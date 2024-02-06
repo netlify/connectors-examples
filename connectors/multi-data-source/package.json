@@ -1,0 +1,19 @@
+{
+  "name": "multi-data-connector",
+  "dependencies": {
+    "@graphql-tools/executor-http": "^1.0.7",
+    "@graphql-tools/schema": "^10.0.2",
+    "@graphql-tools/stitch": "^9.0.3",
+    "@graphql-tools/wrap": "^10.0.1",
+    "@netlify/sdk": "1.17.0",
+    "typescript": "^5.2.2"
+  },
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "yarn build-connector",
+    "build-connector": "ntli build -a",
+    "dev": "ntli dev -c",
+    "preview": "ntli preview"
+  }
+}

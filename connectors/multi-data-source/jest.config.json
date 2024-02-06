@@ -1,0 +1,6 @@
+{
+  "transform": {
+    "^.+\\.tsx?$": "esbuild-jest"
+  },
+  "modulePathIgnorePatterns": ["node_modules", ".ntli/connector/package.json"]
+}
