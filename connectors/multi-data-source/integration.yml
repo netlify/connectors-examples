@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://sdk.netlify.com/config-schema.json
 config:
-  name: breweries-api-connector
+  name: multi-data-source-sports
   description: Sourcing from Breweries REST API
-  slug: 5oj7aheb-breweries-api-connector
+  slug: 352j3u64-multi-data-source-sports
   integrationLevel: team
