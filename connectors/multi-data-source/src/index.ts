@@ -8,8 +8,13 @@ const connector = integration.addConnector({
 
 class SportsClient {
   async getNBA() {
-    const api = `https://www.balldontlie.io/api/v1/teams`;
-    const res = await fetch(api);
+    const api = `https://api.balldontlie.io/v1/teams`;
+    const res = await fetch(api, {
+      headers: {
+        Authorization: `844164a5-fe3a-4b11-a5cc-42f85440cc75`,
+      },
+    });
+
     const data = await res.json();
     return data?.data;
   }
